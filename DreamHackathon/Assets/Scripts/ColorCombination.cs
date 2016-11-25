@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ColorCombination : MonoBehaviour
+public class ColorCombination : ObjectEvent
 {
     [SerializeField] private ColorManager.Colors firstColor;
     [SerializeField] private ColorManager.Colors secondColor;
@@ -10,20 +10,22 @@ public class ColorCombination : MonoBehaviour
 
     [SerializeField] GameObject[] objectsToCombine;
 
-    public void Combine(GameObject objOne, GameObject objTwo)
+    public override void StartAction(GameObject thisObj, GameObject otherObj)
     {
-        if (objOne.GetComponent<ColorManager>() != null &&
-            objTwo.GetComponent<ColorManager>() != null)
+        base.StartAction(thisObj, otherObj);
+    
+        if (thisObj.GetComponent<ColorManager>() != null &&
+            otherObj.GetComponent<ColorManager>() != null)
         {
             
-            firstColor = objOne.GetComponent<ColorManager>().CurrentColor;
-            secondColor = objTwo.GetComponent<ColorManager>().CurrentColor;
+            firstColor = thisObj.GetComponent<ColorManager>().CurrentColor;
+            secondColor = otherObj.GetComponent<ColorManager>().CurrentColor;
 
             newColor = ColorCombine(firstColor, secondColor);
 
-            objOne.GetComponent<ColorManager>().NewColor = newColor;
+            thisObj.GetComponent<ColorManager>().NewColor = newColor;
 
-            Destroy(objTwo);
+            Destroy(otherObj);
 
         }
     }
@@ -74,14 +76,5 @@ public class ColorCombination : MonoBehaviour
 
 
             return newColor;
-    }
-
-    void Update()
-    {
-        if(testCombine)
-        {
-            Combine(objectsToCombine[0], objectsToCombine[1]);
-            testCombine = false;
-        }
     }
 }

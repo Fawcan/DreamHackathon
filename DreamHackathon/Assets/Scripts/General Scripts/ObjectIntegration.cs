@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 [RequireComponent (typeof(Rigidbody))]
 public class ObjectIntegration : MonoBehaviour
 {
-    [SerializeField] private GameObject[] targets;
+    [SerializeField] private List<GameObject> targets;
     [SerializeField] private ObjectEvent[] objEvents;
     [SerializeField] private bool findAllObjectsOfTypeInTargets = false;
 
@@ -13,9 +14,9 @@ public class ObjectIntegration : MonoBehaviour
     {
         if (findAllObjectsOfTypeInTargets)
         {
-            foreach (GameObject GO in targets)
+            foreach(GameObject GO in targets)
             {
-                
+                GameObject[] targetTag = GameObject.FindGameObjectsWithTag(GO.tag);
             }
         }
     }

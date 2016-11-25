@@ -272,7 +272,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 575617814}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 781a0260efaab464797e0c2340989058, type: 3}
+  m_Script: {fileID: 11500000, guid: 54f40999c737d4c4b84d9f46bd6d023c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   firstButton: {fileID: 575617814}
@@ -283,8 +283,8 @@ MonoBehaviour:
   secondButtonPressable: 0
   firstButtonTimer: 0
   firstButtonStartTimer: 6
-  secondButtonIntervalLow: 2
-  secondButtonIntervalHigh: 2.3
+  secondButtonIntervalLow: 2.5
+  secondButtonIntervalHigh: 2
 --- !u!114 &575617820
 MonoBehaviour:
   m_ObjectHideFlags: 0

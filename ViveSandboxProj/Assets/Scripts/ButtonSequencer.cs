@@ -97,6 +97,8 @@ public class ButtonSequencer : MonoBehaviour {
                 secondButton.GetComponent<ColorManager>().NewColor = ColorManager.Colors.YELLOW;
 
                 firstButtonTimer = firstButtonStartTimer;
+
+                Debug.Log("Collision Registered");
             }
         }
         if (sequenceStarted)

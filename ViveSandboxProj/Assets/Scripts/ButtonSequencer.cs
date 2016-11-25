@@ -30,18 +30,6 @@ public class ButtonSequencer : MonoBehaviour {
     {
         if (!sequenceComplete)
         {
-            if (firstButtonTimer <= 0 && Input.GetKeyDown(KeyCode.Z))
-            {
-                sequenceStarted = true;
-                firstButtonPressable = false;
-                secondButtonPressable = true;
-
-                firstButton.GetComponent<ColorManager>().NewColor = ColorManager.Colors.GREEN;
-                secondButton.GetComponent<ColorManager>().NewColor = ColorManager.Colors.YELLOW;
-
-                firstButtonTimer = firstButtonStartTimer;
-            }
-
             if (sequenceStarted)
             {
                 if (firstButtonTimer <= secondButtonIntervalHigh && firstButtonTimer >= secondButtonIntervalLow && Input.GetKeyDown(KeyCode.X))
@@ -94,4 +82,41 @@ public class ButtonSequencer : MonoBehaviour {
             secondButton.GetComponent<ColorManager>().NewColor = ColorManager.Colors.GREEN;
         }
 	}
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.name == "Controller (right)" || other.gameObject.name == "Controller (left)")
+        {
+            if (firstButtonTimer <= 0)
+            {
+                sequenceStarted = true;
+                firstButtonPressable = false;
+                secondButtonPressable = true;
+
+                firstButton.GetComponent<ColorManager>().NewColor = ColorManager.Colors.GREEN;
+                secondButton.GetComponent<ColorManager>().NewColor = ColorManager.Colors.YELLOW;
+
+                firstButtonTimer = firstButtonStartTimer;
+            }
+        }
+        if (sequenceStarted)
+        {
+            if (firstButtonTimer <= secondButtonIntervalHigh && firstButtonTimer >= secondButtonIntervalLow 
+                && other.gameObject.name == "Controller (right)" || other.gameObject.name == "Controller (left)")
+            {
+                secondButton.GetComponent<ColorManager>().NewColor = ColorManager.Colors.GREEN;
+                sequenceStarted = false;
+                sequenceComplete = true;
+            }
+            else if (firstButtonTimer >= secondButtonIntervalHigh && other.gameObject.name == "Controller (right)" || other.gameObject.name == "Controller (left)" 
+                && secondButtonPressable)
+            {
+                firstButton.GetComponent<ColorManager>().NewColor = ColorManager.Colors.RED;
+                secondButton.GetComponent<ColorManager>().NewColor = ColorManager.Colors.RED;
+                firstButtonPressable = false;
+                secondButtonPressable = false;
+                sequenceStarted = false;
+            }
+        }
+    }
 }

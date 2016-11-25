@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class OnDestory : MonoBehaviour {
+public class Destroy : MonoBehaviour {
 
     [SerializeField] private OnDeathFunctions[] deathFunctions;
 
@@ -21,7 +21,7 @@ public class OnDestory : MonoBehaviour {
     {
         foreach (OnDeathFunctions function in deathFunctions)
         {
-            //function.DestroyTask();
+            function.DestroyTask();
         }
     }
 }

@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca1c631648218d745b3a04e37b46f238, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentColor: 0
+  currentColor: 2
   newColor: 2
 --- !u!23 &374232484
 MeshRenderer:

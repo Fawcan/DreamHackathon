@@ -10,7 +10,8 @@ public class ColorManager : MonoBehaviour
         YELLOW,
         ORANGE,
         PURPLE,
-        GREEN
+        GREEN,
+        WHITE
     }
 
     [SerializeField] private Colors currentColor;
@@ -71,6 +72,9 @@ public class ColorManager : MonoBehaviour
                 break;
             case Colors.GREEN:
                 tempColor = Color.green;
+                break;
+            case Colors.WHITE:
+                tempColor = Color.white;
                 break;
             default:
                 break;

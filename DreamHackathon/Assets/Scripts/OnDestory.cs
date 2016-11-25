@@ -3,7 +3,7 @@ using System.Collections;
 
 public class OnDestory : MonoBehaviour {
 
-    [SerializeField] private LevelManager[] levels;
+    [SerializeField] private OnDeathFunctions[] deathFunctions;
 
 	// Use this for initialization
 	void Start ()
@@ -16,4 +16,12 @@ public class OnDestory : MonoBehaviour {
     {
 	
 	}
+
+    public void DestroyObject()
+    {
+        foreach (OnDeathFunctions function in deathFunctions)
+        {
+            //function.DestroyTask();
+        }
+    }
 }

@@ -85,7 +85,7 @@ public class ButtonSequencer : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "Controller (right)" || other.gameObject.name == "Controller (left)")
+        if (other.gameObject.layer == 12)
         {
             if (firstButtonTimer <= 0)
             {
@@ -104,13 +104,13 @@ public class ButtonSequencer : MonoBehaviour {
         if (sequenceStarted)
         {
             if (firstButtonTimer <= secondButtonIntervalHigh && firstButtonTimer >= secondButtonIntervalLow 
-                && other.gameObject.name == "Controller (right)" || other.gameObject.name == "Controller (left)")
+                && other.gameObject.layer == 12)
             {
                 secondButton.GetComponent<ColorManager>().NewColor = ColorManager.Colors.GREEN;
                 sequenceStarted = false;
                 sequenceComplete = true;
             }
-            else if (firstButtonTimer >= secondButtonIntervalHigh && other.gameObject.name == "Controller (right)" || other.gameObject.name == "Controller (left)" 
+            else if (firstButtonTimer >= secondButtonIntervalHigh && other.gameObject.layer == 12
                 && secondButtonPressable)
             {
                 firstButton.GetComponent<ColorManager>().NewColor = ColorManager.Colors.RED;

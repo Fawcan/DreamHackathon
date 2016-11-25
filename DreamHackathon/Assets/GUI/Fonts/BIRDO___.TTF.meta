@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: fe2b3222feafb5c42afeb8149c739bfa
+timeCreated: 1480088814
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Birdman
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: ecb9da81db02b664f9ddd7c8a519b8bd, type: 3}
+  - {fileID: 12800000, guid: 827ad878ed735a946bf329960a32ae47, type: 3}
+  - {fileID: 12800000, guid: 0f50e689f0aca4047992f2875a128159, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

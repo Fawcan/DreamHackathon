@@ -3,19 +3,21 @@ using System.Collections;
 
 public class ColorCombination : MonoBehaviour
 {
-    [SerializeField] private Color firstColor;
-    [SerializeField] private Color secondColor;
-    [SerializeField] private Color newColor;
+    [SerializeField] private ColorManager.Colors firstColor;
+    [SerializeField] private ColorManager.Colors secondColor;
+    [SerializeField] private ColorManager.Colors newColor;
+    [SerializeField] private bool testCombine = false;
 
-
+    [SerializeField] GameObject[] objectsToCombine;
 
     public void Combine(GameObject objOne, GameObject objTwo)
     {
         if (objOne.GetComponent<ColorManager>() != null &&
             objTwo.GetComponent<ColorManager>() != null)
         {
-            firstColor = objOne.GetComponent<ColorManager>().Color;
-            secondColor = objTwo.GetComponent<ColorManager>().Color;
+            
+            firstColor = objOne.GetComponent<ColorManager>().CurrentColor;
+            secondColor = objTwo.GetComponent<ColorManager>().CurrentColor;
 
             newColor = ColorCombine(firstColor, secondColor);
 
@@ -27,33 +29,59 @@ public class ColorCombination : MonoBehaviour
     }
 
 
-    Color ColorCombine(Color firstColor, Color secondColor)
+    ColorManager.Colors ColorCombine(ColorManager.Colors firstColor, ColorManager.Colors secondColor)
     {
         if (this.firstColor == secondColor)
         {
             return firstColor;
         }
 
-        else if (firstColor == Color.red && secondColor == Color.yellow
-            || firstColor == Color.yellow && secondColor == Color.red)
+        else if(firstColor == ColorManager.Colors.ORANGE || secondColor == ColorManager.Colors.ORANGE)
         {
-            newColor = new Color(255, 165, 0);
+            newColor = ColorManager.Colors.ORANGE;
         }
 
-        else if (firstColor == Color.yellow && secondColor == Color.blue
-            || firstColor == Color.blue && secondColor == Color.yellow)
+        else if(firstColor == ColorManager.Colors.PURPLE || secondColor == ColorManager.Colors.PURPLE)
         {
-            newColor = Color.green;
+            newColor = ColorManager.Colors.PURPLE;
         }
 
-        else if (firstColor == Color.red && secondColor == Color.blue 
-            || firstColor == Color.blue && secondColor == Color.red)
+        else if(firstColor == ColorManager.Colors.GREEN || secondColor == ColorManager.Colors.GREEN)
         {
-            newColor = new Color(128, 0, 128);
+            newColor = ColorManager.Colors.GREEN;
+        }
+
+        //If colors are red and yellow make the new color orange
+        else if (firstColor == ColorManager.Colors.RED && secondColor == ColorManager.Colors.YELLOW
+            || firstColor == ColorManager.Colors.YELLOW && secondColor == ColorManager.Colors.RED)
+        {
+            newColor = ColorManager.Colors.ORANGE;
+        }
+
+        //If colors are blue and yellow make the new color green
+        else if (firstColor == ColorManager.Colors.YELLOW && secondColor == ColorManager.Colors.BLUE
+            || firstColor == ColorManager.Colors.BLUE && secondColor == ColorManager.Colors.YELLOW)
+        {
+            newColor = ColorManager.Colors.GREEN;
+        }
+        //If colors are red and blue make the new color purple
+        else if (firstColor == ColorManager.Colors.RED && secondColor == ColorManager.Colors.BLUE 
+            || firstColor == ColorManager.Colors.BLUE && secondColor == ColorManager.Colors.RED)
+        {
+            newColor = ColorManager.Colors.PURPLE;
         }
 
 
 
             return newColor;
+    }
+
+    void Update()
+    {
+        if(testCombine)
+        {
+            Combine(objectsToCombine[0], objectsToCombine[1]);
+            testCombine = false;
+        }
     }
 }

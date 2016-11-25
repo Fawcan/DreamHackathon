@@ -3,15 +3,27 @@ using System.Collections;
 
 public class ColorManager : MonoBehaviour
 {
-    [SerializeField] private Color currentColor;
-    [SerializeField] private Color newColor;
+    public enum Colors
+    {
+        RED,
+        BLUE,
+        YELLOW,
+        ORANGE,
+        PURPLE,
+        GREEN
+    }
 
-    public Color NewColor
+    [SerializeField] private Colors currentColor;
+    [SerializeField] private Colors newColor;
+
+    private Color color;
+
+    public Colors NewColor
     {
         set { newColor = value; }
     }
 
-    public Color Color
+    public Colors CurrentColor
     {
         get { return currentColor; }
     }
@@ -19,7 +31,9 @@ public class ColorManager : MonoBehaviour
 
     void Start()
     {
-        gameObject.GetComponent<Renderer>().material.color = currentColor;
+        newColor = currentColor;
+        color = ConvertColor(currentColor);
+        gameObject.GetComponent<Renderer>().material.color = color;
     }
 
 
@@ -27,9 +41,43 @@ public class ColorManager : MonoBehaviour
     {
         if (currentColor != newColor)
         {
-            gameObject.GetComponent<Renderer>().material.color = newColor;
+            color = ConvertColor(newColor);
+            gameObject.GetComponent<Renderer>().material.color = color;
             currentColor = newColor;
+
         }   
+    }
+
+    Color ConvertColor(Colors colors)
+    {
+        Color tempColor = Color.black;
+
+        switch(colors)
+        {
+            case Colors.RED:
+                tempColor = Color.red;
+                break;
+            case Colors.BLUE:
+                tempColor = Color.blue;
+                break;
+            case Colors.YELLOW:
+                tempColor = Color.yellow;
+                break;
+            case Colors.ORANGE:
+                tempColor = new Color(1, 0.65f, 0);
+                break;
+            case Colors.PURPLE:
+                tempColor = new Color(0.63f, 0.12f, 0.94f);
+                break;
+            case Colors.GREEN:
+                tempColor = Color.green;
+                break;
+            default:
+                break;
+
+        }
+
+        return tempColor;
     }
 
 }

@@ -56,6 +56,7 @@ public class SecondButtonPressedEvent : ObjectEvent {
             firstButtonPressedEv.secondButtonPressable = false;
             firstButtonPressedEv.firstButtonPressable = true;
             firstButtonPressedEv.firstButtonPressed = false;
+            firstButtonPressedEv.sequenceFailed = false;
 
             firstButton.GetComponent<ColorManager>().NewColor = ColorManager.Colors.YELLOW;
             gameObject.GetComponent<ColorManager>().NewColor = ColorManager.Colors.WHITE;
@@ -69,6 +70,7 @@ public class SecondButtonPressedEvent : ObjectEvent {
 
             firstButtonPressedEv.secondButtonPressable = false;
             firstButtonPressedEv.firstButtonPressable = false;
+            firstButtonPressedEv.timerStopped = false;
 
             if (firstButtonPressedEv.timer <= 0)
             {
@@ -79,6 +81,7 @@ public class SecondButtonPressedEvent : ObjectEvent {
                 firstButtonPressedEv.secondButtonPressable = false;
                 firstButtonPressedEv.firstButtonPressable = true;
                 firstButtonPressedEv.firstButtonPressed = false;
+                firstButtonPressedEv.sequenceFailed = false;
 
                 firstButton.GetComponent<ColorManager>().NewColor = ColorManager.Colors.YELLOW;
                 gameObject.GetComponent<ColorManager>().NewColor = ColorManager.Colors.WHITE;

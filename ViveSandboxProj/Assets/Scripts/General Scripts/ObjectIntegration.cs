@@ -6,8 +6,7 @@ public class ObjectIntegration : MonoBehaviour
 {
     [SerializeField] private GameObject[] targets;
     [SerializeField] private ObjectEvent[] objEvents;
-    [SerializeField] private bool findAllObjectsOfTypeInTargets = false;
-    [SerializeField] private bool eventTriggered = false;
+        [SerializeField] private bool eventTriggered = false;
     [SerializeField] private bool eventRepeatable = false;
 
     [SerializeField] private float eventCooldown = 0;
@@ -16,13 +15,7 @@ public class ObjectIntegration : MonoBehaviour
 
     void Start()
     {
-        if (findAllObjectsOfTypeInTargets)
-        {
-            foreach (GameObject GO in targets)
-            {
-                
-            }
-        }
+       
     }
 
     void Update()
@@ -44,7 +37,7 @@ public class ObjectIntegration : MonoBehaviour
         {
             foreach (GameObject go in targets)
             {
-                if (collision.gameObject == go)
+                if (collision.gameObject.tag == go.tag)
                 {
                     Debug.Log("Is colliding with target");
                     foreach (ObjectEvent objEvent in objEvents)

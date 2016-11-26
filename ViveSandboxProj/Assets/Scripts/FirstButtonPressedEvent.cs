@@ -4,6 +4,7 @@ using System.Collections;
 public class FirstButtonPressedEvent : ObjectEvent {
 
     [SerializeField] private GameObject secondButton; //Store the second button in the Inspector
+    [SerializeField] public SecondButtonPressedEvent secondButtonPressedEv;
 
     [SerializeField] public bool firstButtonPressable = true; //If the player can press the first button
     [SerializeField] public bool firstButtonPressed = false; //If the player has pressed the first button
@@ -23,6 +24,7 @@ public class FirstButtonPressedEvent : ObjectEvent {
     {
         gameObject.GetComponent<ColorManager>().NewColor = ColorManager.Colors.YELLOW; //Set the defualt color of the first button to yellow, indicating it can be pressed.
         secondButton.GetComponent<ColorManager>().NewColor = ColorManager.Colors.WHITE; //Set the defualt color of the second button to white, indicating it cannot can be pressed.
+        secondButtonPressedEv = secondButton.GetComponent<SecondButtonPressedEvent>();
     }
 
     public override void StartEvent(GameObject thisObj, GameObject otherObj)
@@ -46,6 +48,11 @@ public class FirstButtonPressedEvent : ObjectEvent {
         {
             timerSet = true;
             timer = timerStartValue; //Set the timer to it's starting value.
+        }
+
+        if (timer <= secondButtonPressedEv.timerMax && timer >= secondButtonPressedEv.timerLow) //While in between the intervals, make the button yellow.
+        {
+            gameObject.GetComponent<ColorManager>().NewColor = ColorManager.Colors.YELLOW;
         }
 
         if (timer > 0 && !timerStopped) //Countdown as long as the timer hasn't been stopped.

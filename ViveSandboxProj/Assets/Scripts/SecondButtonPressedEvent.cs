@@ -6,8 +6,8 @@ public class SecondButtonPressedEvent : ObjectEvent {
     [SerializeField] private GameObject firstButton; //Store the first button in the Inspector
     [SerializeField] public FirstButtonPressedEvent firstButtonPressedEv;
 
-    [SerializeField] private float timerLow; //Set the low value for the timer interval
-    [SerializeField] private float timerMax; //Set the high value for the timer interval
+    [SerializeField] public float timerLow; //Set the low value for the timer interval
+    [SerializeField] public float timerMax; //Set the high value for the timer interval
 
     // Use this for initialization
     void Start ()
@@ -29,11 +29,6 @@ public class SecondButtonPressedEvent : ObjectEvent {
     // Update is called once per frame
     void Update ()
     {
-        if (firstButtonPressedEv.timer <= timerMax && firstButtonPressedEv.timer >= timerLow) //While in between the intervals, make the button yellow.
-        {
-            gameObject.GetComponent<ColorManager>().NewColor = ColorManager.Colors.YELLOW;
-        }
-
         //If the timer has been stopped by collision and timer being in between the interval, make the button green and complete the sequence.
         if (firstButtonPressedEv.timerStopped && firstButtonPressedEv.timer <= timerMax && firstButtonPressedEv.timer >= timerLow)
         {
@@ -41,7 +36,11 @@ public class SecondButtonPressedEvent : ObjectEvent {
             firstButtonPressedEv.sequenceComplete = true;
         }
         //If the timer has been stopped by collision and timer being outside the interval, make all the buttons red and fail the sequence.
-        else if (firstButtonPressedEv.timerStopped && firstButtonPressedEv.timerSet && firstButtonPressedEv.timer > timerMax || firstButtonPressedEv.timer < timerMax)
+        else if (firstButtonPressedEv.timerStopped && firstButtonPressedEv.timer > timerMax)
+        {
+            firstButtonPressedEv.sequenceFailed = true;
+        }
+        else if (firstButtonPressedEv.timerStopped && firstButtonPressedEv.timer < timerLow)
         {
             firstButtonPressedEv.sequenceFailed = true;
         }

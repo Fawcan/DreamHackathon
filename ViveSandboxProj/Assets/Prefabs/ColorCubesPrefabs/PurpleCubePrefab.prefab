@@ -27,9 +27,9 @@ GameObject:
   - 114: {fileID: 114000013244629270}
   - 114: {fileID: 114000012913293942}
   m_Layer: 0
-  m_Name: TempPurple
+  m_Name: PurpleCubePrefab
   m_TagString: purple
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -120,7 +120,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb7846b0ec7309544a92467782235382, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scriptActive: 0
   firstColor: 0
   secondColor: 0
   newColor: 0
@@ -164,5 +163,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentColor: 4
-  newColor: 0
-  currentTag: 

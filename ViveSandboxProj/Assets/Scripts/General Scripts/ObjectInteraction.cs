@@ -2,8 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 
-[RequireComponent (typeof(Rigidbody))]
-public class ObjectIntegration : MonoBehaviour
+//[RequireComponent (typeof(Rigidbody))]
+public class ObjectInteraction : MonoBehaviour
 {
     [SerializeField] private GameObject[] targets;
     [SerializeField] private List<ObjectEvent> objEvents = new List<ObjectEvent>();
@@ -25,7 +25,7 @@ public class ObjectIntegration : MonoBehaviour
 
     void Update()
     {
-        if (timer > 0)
+        if (timer > 0)  
         {
             timer -= Time.deltaTime;
         }
@@ -42,7 +42,7 @@ public class ObjectIntegration : MonoBehaviour
     }
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Colliding");
+        Debug.Log(this.gameObject + " is Colliding with " + collision.gameObject);
         if (!eventTriggered)
         {
             foreach (GameObject go in targets)
@@ -73,16 +73,18 @@ public class ObjectIntegration : MonoBehaviour
     {
         if (!eventTriggered)
         {
+
+            Debug.Log(this.gameObject + "s trigger was entererd by " + other);
             foreach (GameObject go in targets)
             {
-                if (other.gameObject.tag == go.tag)
+                Debug.Log("checking targets");
+                   
+               
+                foreach (ObjectEvent objEvent in objEvents)
                 {
-                    Debug.Log("Is colliding with target");
-                    foreach (ObjectEvent objEvent in objEvents)
-                    {
-                        objEvent.StartEvent(this.gameObject, other.gameObject);
-                    }
+                    objEvent.StartEvent(this.gameObject, other.gameObject);
                 }
+                
             }
 
             eventTriggered = true;

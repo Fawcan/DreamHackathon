@@ -50,7 +50,7 @@ public class FirstButtonPressedEvent : ObjectEvent {
             timer = timerStartValue; //Set the timer to it's starting value.
         }
 
-        if (timer <= secondButtonPressedEv.timerMax && timer >= secondButtonPressedEv.timerLow) //While in between the intervals, make the button yellow.
+        if (timer <= secondButtonPressedEv.timerMax && timer >= secondButtonPressedEv.timerLow && !sequenceFailed) //While in between the intervals, make the button yellow.
         {
             secondButton.GetComponent<ColorManager>().NewColor = ColorManager.Colors.YELLOW;
         }

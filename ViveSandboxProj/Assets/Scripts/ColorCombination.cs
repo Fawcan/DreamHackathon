@@ -1,18 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ColorCombination : ObjectEvent
+public class ColorCombination : MonoBehaviour
 {
+    [SerializeField] private bool scriptActive;
     [SerializeField] private ColorManager.Colors firstColor;
     [SerializeField] private ColorManager.Colors secondColor;
     [SerializeField] private ColorManager.Colors newColor;
     [SerializeField] private bool testCombine = false;
+    [SerializeField] private bool alreadyDead = false;
 
     [SerializeField] GameObject[] objectsToCombine;
 
-    public override void StartAction(GameObject thisObj, GameObject otherObj)
+    [SerializeField] private string[] tags;
+    
+
+    private void StartCombine(GameObject thisObj, GameObject otherObj)
     {
-        base.StartAction(thisObj, otherObj);
+        Debug.Log("Starting to combine objects");
     
         if (thisObj.GetComponent<ColorManager>() != null &&
             otherObj.GetComponent<ColorManager>() != null)
@@ -25,8 +30,27 @@ public class ColorCombination : ObjectEvent
 
             thisObj.GetComponent<ColorManager>().NewColor = newColor;
 
-            Destroy(otherObj);
+            if(!alreadyDead)
+            {
+                ColorCombination other = otherObj.GetComponent<ColorCombination>();
+                if(other != null)
+                {
+                    other.alreadyDead = true;
+                    Destroy(otherObj);
+                }
+            }
 
+
+        }
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("colliding");
+        if(System.Array.IndexOf(tags, collision.gameObject.tag) != -1)
+        {
+            Debug.Log("checking tags");
+            StartCombine(this.gameObject, collision.gameObject);
         }
     }
 

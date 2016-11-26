@@ -4,7 +4,12 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Ammo
+  - blue
+  - red
+  - yellow
+  - orange
+  - purple
+  - green
   layers:
   - Default
   - TransparentFX

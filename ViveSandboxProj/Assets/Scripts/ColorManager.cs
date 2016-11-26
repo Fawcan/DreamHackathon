@@ -16,6 +16,7 @@ public class ColorManager : MonoBehaviour
 
     [SerializeField] private Colors currentColor;
     [SerializeField] private Colors newColor;
+    [SerializeField] private string currentTag;
 
     private Color color;
 
@@ -46,6 +47,11 @@ public class ColorManager : MonoBehaviour
             gameObject.GetComponent<Renderer>().material.color = color;
             currentColor = newColor;
 
+        }
+        
+        if(currentTag != this.gameObject.tag)
+        {
+            this.gameObject.tag = currentTag;
         }   
     }
 
@@ -57,24 +63,31 @@ public class ColorManager : MonoBehaviour
         {
             case Colors.RED:
                 tempColor = Color.red;
+                currentTag = "red";
                 break;
             case Colors.BLUE:
                 tempColor = Color.blue;
+                currentTag = "blue";
                 break;
             case Colors.YELLOW:
                 tempColor = Color.yellow;
+                currentTag = "yellow";
                 break;
             case Colors.ORANGE:
                 tempColor = new Color(1, 0.65f, 0);
+                currentTag = "orange";
                 break;
             case Colors.PURPLE:
                 tempColor = new Color(0.63f, 0.12f, 0.94f);
+                currentTag = "purple";
                 break;
             case Colors.GREEN:
+                currentTag = "green";
                 tempColor = Color.green;
                 break;
             case Colors.WHITE:
                 tempColor = Color.white;
+                currentTag = "white";
                 break;
             default:
                 break;

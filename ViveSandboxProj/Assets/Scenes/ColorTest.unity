@@ -102,6 +102,8 @@ GameObject:
   - 65: {fileID: 374232485}
   - 23: {fileID: 374232484}
   - 114: {fileID: 374232483}
+  - 114: {fileID: 374232488}
+  - 54: {fileID: 374232489}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -183,6 +185,45 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
+--- !u!114 &374232488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 374232482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb7846b0ec7309544a92467782235382, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scriptActive: 0
+  firstColor: 0
+  secondColor: 0
+  newColor: 0
+  testCombine: 0
+  objectsToCombine: []
+  tags:
+  - red
+  - blue
+  - yellow
+  - orange
+  - purple
+  - green
+--- !u!54 &374232489
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 374232482}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &593483434
 GameObject:
   m_ObjectHideFlags: 0
@@ -345,6 +386,8 @@ GameObject:
   - 65: {fileID: 1949076015}
   - 23: {fileID: 1949076014}
   - 114: {fileID: 1949076013}
+  - 114: {fileID: 1949076018}
+  - 54: {fileID: 1949076019}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -426,6 +469,45 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
+--- !u!114 &1949076018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1949076012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb7846b0ec7309544a92467782235382, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scriptActive: 0
+  firstColor: 0
+  secondColor: 0
+  newColor: 0
+  testCombine: 0
+  objectsToCombine: []
+  tags:
+  - red
+  - blue
+  - yellow
+  - purple
+  - orange
+  - green
+--- !u!54 &1949076019
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1949076012}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &2099358503
 GameObject:
   m_ObjectHideFlags: 0
@@ -453,6 +535,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb7846b0ec7309544a92467782235382, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scriptActive: 0
   firstColor: 0
   secondColor: 0
   newColor: 0
@@ -460,6 +543,7 @@ MonoBehaviour:
   objectsToCombine:
   - {fileID: 374232482}
   - {fileID: 1949076012}
+  tags: []
 --- !u!4 &2099358505
 Transform:
   m_ObjectHideFlags: 0

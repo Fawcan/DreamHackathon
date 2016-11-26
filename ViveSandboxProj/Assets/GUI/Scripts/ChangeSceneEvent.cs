@@ -7,13 +7,13 @@ public class ChangeSceneEvent : ObjectEvent
     [SerializeField] private float timer;
     [SerializeField] private float cooldown;
     [SerializeField] private bool timerStarted = false;
-    [SerializeField] private LevelManager levelManager;
+    [SerializeField] private FadeCameraManager fadeCamera;
    
 
     
     void Start()
     {
-        levelManager = GameObject.FindGameObjectWithTag("manager").GetComponent<LevelManager>();
+        //levelManager = GameObject.FindGameObjectWithTag("manager").GetComponent<LevelManager>();
     }
 
     public override void StartEvent(GameObject thisObj, GameObject otherObj)
@@ -34,7 +34,7 @@ public class ChangeSceneEvent : ObjectEvent
         }
         else if (timer <= 0 && timerStarted)
         {
-            levelManager.LevelLoad = true;
+            fadeCamera.BeginFade(1);
         }
     }
 }

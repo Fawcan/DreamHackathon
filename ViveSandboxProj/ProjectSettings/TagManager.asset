@@ -10,6 +10,7 @@ TagManager:
   - orange
   - purple
   - green
+  - manager
   layers:
   - Default
   - TransparentFX

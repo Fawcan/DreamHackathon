@@ -29,6 +29,7 @@ public class LevelProgressPoint : ObjectEvent
 
     public override void StartEvent(GameObject thisObj, GameObject otherObj)
     {
+        Debug.Log("threshold reached");
         base.StartEvent(thisObj, otherObj);
         if(!ProgressCompleted)
         {

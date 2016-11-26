@@ -34,7 +34,7 @@ public class LevelManager : MonoBehaviour {
         Debug.Log("yay next level");
         try {
             SceneManager.LoadScene(levels[levelIndex]);
-            levelIndex++;
+            levelIndex++;            
         }
         catch(System.IndexOutOfRangeException)
         {

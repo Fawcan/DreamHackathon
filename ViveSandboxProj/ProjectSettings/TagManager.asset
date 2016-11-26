@@ -12,6 +12,7 @@ TagManager:
   - green
   - manager
   - white
+  - floorBar
   layers:
   - Default
   - TransparentFX

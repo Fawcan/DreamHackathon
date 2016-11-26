@@ -7,7 +7,6 @@ using System.Collections;
 /// </summary>
 public class LEDBar : MonoBehaviour
 {
-    [SerializeField]
     Color OffColor;
     [SerializeField]
     Color NoFillColor;
@@ -17,14 +16,28 @@ public class LEDBar : MonoBehaviour
     AnimationCurve Intensity;
     [SerializeField]
     float IntensityFactor;
+    [Tooltip("Fill this array with the objects you want lit up based on progress")]
     [SerializeField]
     MeshRenderer[] LEDs;
+    [SerializeField]
+    MeshRenderer[] floorBars;
 
     [Range(0, 1)]
     public float NormFillValue;
 
     Color TargetColor;
+    void Start()
+    {
+        OffColor = NoFillColor;
+        int count = floorBars.Length;
+        for (int i = 0; i < count; i++)
+        {
+            Color color = FullFillColor;
 
+            floorBars[i].material.SetColor("_EmissionColor", color * Intensity.Evaluate(1) * IntensityFactor);
+            floorBars[i].material.SetColor("_Color", color);
+        }
+    }
     void Update()
     {
         Color colorRange = FullFillColor - NoFillColor;

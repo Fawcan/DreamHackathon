@@ -52,7 +52,7 @@ public class FirstButtonPressedEvent : ObjectEvent {
 
         if (timer <= secondButtonPressedEv.timerMax && timer >= secondButtonPressedEv.timerLow) //While in between the intervals, make the button yellow.
         {
-            gameObject.GetComponent<ColorManager>().NewColor = ColorManager.Colors.YELLOW;
+            secondButton.GetComponent<ColorManager>().NewColor = ColorManager.Colors.YELLOW;
         }
 
         if (timer > 0 && !timerStopped) //Countdown as long as the timer hasn't been stopped.

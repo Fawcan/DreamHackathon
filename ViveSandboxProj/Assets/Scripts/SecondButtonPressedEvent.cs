@@ -67,14 +67,22 @@ public class SecondButtonPressedEvent : ObjectEvent {
             firstButton.GetComponent<ColorManager>().NewColor = ColorManager.Colors.RED;
             gameObject.GetComponent<ColorManager>().NewColor = ColorManager.Colors.RED;
 
-            firstButtonPressedEv.timer = 0;
-            firstButtonPressedEv.timerSet = false;
-            firstButtonPressedEv.timerStopped = false;
-
-            firstButtonPressedEv.secondButtonPressed = true;
             firstButtonPressedEv.secondButtonPressable = false;
             firstButtonPressedEv.firstButtonPressable = false;
-            firstButtonPressedEv.firstButtonPressed = true;
+
+            if (firstButtonPressedEv.timer <= 0)
+            {
+                firstButtonPressedEv.timerSet = false;
+                firstButtonPressedEv.timerStopped = false;
+
+                firstButtonPressedEv.secondButtonPressed = false;
+                firstButtonPressedEv.secondButtonPressable = false;
+                firstButtonPressedEv.firstButtonPressable = true;
+                firstButtonPressedEv.firstButtonPressed = false;
+
+                firstButton.GetComponent<ColorManager>().NewColor = ColorManager.Colors.YELLOW;
+                gameObject.GetComponent<ColorManager>().NewColor = ColorManager.Colors.WHITE;
+            }
         }
     }
 }

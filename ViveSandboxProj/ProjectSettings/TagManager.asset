@@ -11,6 +11,7 @@ TagManager:
   - purple
   - green
   - manager
+  - white
   layers:
   - Default
   - TransparentFX

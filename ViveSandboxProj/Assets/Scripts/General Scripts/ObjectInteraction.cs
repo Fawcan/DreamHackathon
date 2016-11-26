@@ -82,7 +82,7 @@ public class ObjectInteraction : MonoBehaviour
                
                 foreach (ObjectEvent objEvent in objEvents)
                 {
-                    objEvent.StartEvent(this.gameObject, other.GetComponent<GameObject>());
+                    objEvent.StartEvent(this.gameObject, other.gameObject);
                 }
                 
             }

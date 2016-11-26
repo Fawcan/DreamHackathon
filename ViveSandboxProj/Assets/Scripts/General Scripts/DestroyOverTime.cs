@@ -6,34 +6,31 @@ public class DestroyOverTime : MonoBehaviour
     [SerializeField] private float cooldown = 2;
     [SerializeField] private float timer = 0;
     private bool countDownFinished = false;
+    public bool startCoolDown;
+    private bool cooldownStarted = false;
 
 	// Update is called once per frame
     void Start()
     {
-        timer = cooldown;
+        
     }
 	void Update ()
     {
-
+        if(startCoolDown)
+        {
+            timer = cooldown;
+            startCoolDown = false;
+            cooldownStarted = true;
+        }
         if (timer > 0)
         {
             timer -= Time.deltaTime;
         }
 
-        else
+        else if(timer <= 0 && cooldownStarted)
         {
-            if (!countDownFinished)
-            {
-                if (this.gameObject.GetComponent<Destroy>() != null)
-                {
-                    countDownFinished = true;
-                    Destroy(gameObject);
-                }
-                else
-                {
-                    //Debug.Log("This object does not have a destroy script");
-                }
-            }
+            countDownFinished = true;
+            Destroy(gameObject);
         }
 	}
 }

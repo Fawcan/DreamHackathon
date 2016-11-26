@@ -23,14 +23,19 @@ public class LevelProgressManager : MonoBehaviour
     void Start()
     {
         ledBar = GameObject.FindGameObjectWithTag("floorBar").GetComponent<LEDBar>();
+        pointsCompleted = 0;
     }
     void Update()
     {
-        ledBar.NormFillValue = progress;
-
-        if (pointThreshold <= pointsCompleted)
+        if (ledBar != null)
         {
-            ProgressThreshold();
+
+            ledBar.NormFillValue = progress;
+
+            if (pointThreshold <= pointsCompleted)
+            {
+                ProgressThreshold();
+            }
         }
     }
     public void NewProgress()

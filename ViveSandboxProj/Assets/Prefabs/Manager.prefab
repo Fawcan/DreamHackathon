@@ -21,7 +21,7 @@ GameObject:
   - 4: {fileID: 4000012024128856}
   - 114: {fileID: 114000012404534790}
   - 114: {fileID: 114000012577439428}
-  - 114: {fileID: 114000011145258152}
+  - 114: {fileID: 114000012473943950}
   m_Layer: 0
   m_Name: Manager
   m_TagString: manager
@@ -42,17 +42,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &114000011145258152
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000010142441086}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07eb284dde719da4bbc6b09c4f6328d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114000012404534790
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -67,6 +56,17 @@ MonoBehaviour:
   levels: []
   levelIndex: 0
   levelLoaded: 0
+--- !u!114 &114000012473943950
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010142441086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33fe9515eafa39b4cbd0c26fe9322aab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114000012577439428
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -82,6 +82,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
+  pointsCompleted: 0
   progress: 0
   ledBar: {fileID: 0}
+  objEvent: {fileID: 114000012473943950}
+  objToDoStuffTo: {fileID: 0}
+  pointThreshold: 3

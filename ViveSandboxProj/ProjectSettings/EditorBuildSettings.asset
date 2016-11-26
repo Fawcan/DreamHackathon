@@ -15,3 +15,5 @@ EditorBuildSettings:
     path: Assets/Scenes/TitleMenuVR.unity
   - enabled: 1
     path: Assets/Scenes/Scene_2.unity
+  - enabled: 1
+    path: Assets/Scenes/BasketScene.unity

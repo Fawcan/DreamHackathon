@@ -48,7 +48,7 @@ public class ColorCombination : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("colliding");
+        //Debug.Log("colliding");
         if(System.Array.IndexOf(tags, collision.gameObject.tag) != -1)
         {
             Debug.Log("checking tags");

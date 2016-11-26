@@ -7,6 +7,7 @@ public class LevelManager : MonoBehaviour {
     [SerializeField] private string[] levels; //Write Down Maps in the Editor
     [SerializeField] private int levelIndex; //Index for the levels-array, set in the Editor.
     [SerializeField] private bool levelLoaded = false;
+    [SerializeField] private string nextScene;
     public bool LevelLoad
     {
         set { levelLoaded = value; }
@@ -33,8 +34,7 @@ public class LevelManager : MonoBehaviour {
     {
         Debug.Log("yay next level");
         try {
-            SceneManager.LoadScene(levels[levelIndex]);
-            levelIndex++;            
+            SceneManager.LoadScene(nextScene);       
         }
         catch(System.IndexOutOfRangeException)
         {

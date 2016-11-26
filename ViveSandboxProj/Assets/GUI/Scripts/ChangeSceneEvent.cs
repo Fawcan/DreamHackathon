@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-public class ChangeScene : ObjectEvent
+public class ChangeSceneEvent : ObjectEvent
 {
     [SerializeField] private float timer;
     [SerializeField] private float cooldown;

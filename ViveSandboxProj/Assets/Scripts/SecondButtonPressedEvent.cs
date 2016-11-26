@@ -22,18 +22,19 @@ public class SecondButtonPressedEvent : ObjectEvent {
             base.StartEvent(thisObj, otherObj);
             firstButtonPressedEv.secondButtonPressed = true;
             firstButtonPressedEv.secondButtonPressable = false;
+            firstButtonPressedEv.timerStopped = true;
         }
     }
 
     // Update is called once per frame
     void Update ()
     {
-        if (firstButtonPressedEv.timer <= timerMax && firstButtonPressedEv.timer >= timerLow)
+        if (firstButtonPressedEv.timerStopped && firstButtonPressedEv.timer <= timerMax && firstButtonPressedEv.timer >= timerLow)
         {
             gameObject.GetComponent<ColorManager>().NewColor = ColorManager.Colors.GREEN;
             firstButtonPressedEv.sequenceComplete = true;
         }
-        else if (firstButtonPressedEv.timer != 0 && firstButtonPressedEv.timer > timerMax && firstButtonPressedEv.timer < timerMax)
+        else if (firstButtonPressedEv.timerStopped && firstButtonPressedEv.timer != 0 && firstButtonPressedEv.timer > timerMax && firstButtonPressedEv.timer < timerMax)
         {
             firstButtonPressedEv.sequenceFailed = true;
         }
@@ -42,6 +43,13 @@ public class SecondButtonPressedEvent : ObjectEvent {
         {
             firstButton.GetComponent<ColorManager>().NewColor = ColorManager.Colors.RED;
             gameObject.GetComponent<ColorManager>().NewColor = ColorManager.Colors.RED;
+
+            firstButtonPressedEv.timerStopped = false;
+
+            firstButtonPressedEv.secondButtonPressed = true;
+            firstButtonPressedEv.secondButtonPressable = false;
+            firstButtonPressedEv.firstButtonPressable = false;
+            firstButtonPressedEv.firstButtonPressed = true;
         }
     }
 }

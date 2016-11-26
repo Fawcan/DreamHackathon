@@ -90,36 +90,7 @@ NavMeshSettings:
     cellSize: 0.16666667
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
---- !u!21 &83712657
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: Sprites/Default
-  m_Shader: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  m_SavedProperties:
-    serializedVersion: 2
-    m_TexEnvs:
-    - first:
-        name: _MainTex
-      second:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - first:
-        name: PixelSnap
-      second: 0
-    m_Colors:
-    - first:
-        name: _Color
-      second: {r: 1, g: 1, b: 1, a: 1}
---- !u!43 &113970307
+--- !u!43 &171909524
 Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -342,8 +313,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentColor: 6
-  newColor: 6
-  currentTag: 
 --- !u!114 &218390865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -373,8 +342,7 @@ MonoBehaviour:
   targets:
   - {fileID: 569187228}
   - {fileID: 1963688003}
-  objEvents:
-  - {fileID: 218390865}
+  objEvents: []
   eventTriggered: 0
   eventRepeatable: 0
   eventCooldown: 0.2
@@ -436,12 +404,12 @@ Prefab:
         type: 2}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 113970307}
+      objectReference: {fileID: 171909524}
     - target: {fileID: 23000011236391862, guid: 0ca777b2cd7a3464a91895a0c9090268,
         type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 83712657}
+      objectReference: {fileID: 1815692585}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0ca777b2cd7a3464a91895a0c9090268, type: 2}
   m_IsPrefabParent: 0
@@ -553,6 +521,7 @@ MonoBehaviour:
   timerStartValue: 6
   timerSet: 0
   sequenceComplete: 0
+  sequenceFailed: 0
 --- !u!114 &575617820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -565,8 +534,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentColor: 2
-  newColor: 2
-  currentTag: 
 --- !u!114 &575617821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -581,8 +548,7 @@ MonoBehaviour:
   targets:
   - {fileID: 569187228}
   - {fileID: 1963688003}
-  objEvents:
-  - {fileID: 575617819}
+  objEvents: []
   eventTriggered: 0
   eventRepeatable: 0
   eventCooldown: 0.2
@@ -727,7 +693,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1638462180}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: 0.91, y: 1, z: -3.43}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -796,6 +762,35 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
+--- !u!21 &1815692585
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Sprites/Default
+  m_Shader: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  m_SavedProperties:
+    serializedVersion: 2
+    m_TexEnvs:
+    - first:
+        name: _MainTex
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - first:
+        name: PixelSnap
+      second: 0
+    m_Colors:
+    - first:
+        name: _Color
+      second: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1963688003 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1000013383007650, guid: 0ca777b2cd7a3464a91895a0c9090268,

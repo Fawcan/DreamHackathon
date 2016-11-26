@@ -14,6 +14,7 @@ public class FirstButtonPressedEvent : ObjectEvent {
     [SerializeField] public float timer;
     [SerializeField] private float timerStartValue;
     [SerializeField] private bool timerSet = false;
+    [SerializeField] public bool timerStopped = false;
 
     [SerializeField] public bool sequenceComplete = false;
     [SerializeField] public bool sequenceFailed = false;
@@ -47,7 +48,7 @@ public class FirstButtonPressedEvent : ObjectEvent {
             timer = timerStartValue;
         }
 
-        if (timer > 0)
+        if (timer > 0 && !timerStopped)
         {
             timer -= Time.deltaTime;
         }

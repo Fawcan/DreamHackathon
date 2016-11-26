@@ -3,9 +3,11 @@ using System.Collections;
 
 public class ColorCombination : MonoBehaviour
 {
-    [SerializeField] private bool scriptActive;
+    [Tooltip("Do not change the values in these except for testing")]
     [SerializeField] private ColorManager.Colors firstColor;
+    [Tooltip("Do not change the values in these except for testing")]
     [SerializeField] private ColorManager.Colors secondColor;
+    [Tooltip("Do not change the values in these except for testing")]
     [SerializeField] private ColorManager.Colors newColor;
     [SerializeField] private bool testCombine = false;
     [SerializeField] private bool alreadyDead = false;

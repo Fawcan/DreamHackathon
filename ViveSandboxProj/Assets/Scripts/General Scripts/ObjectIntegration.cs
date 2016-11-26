@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 [RequireComponent (typeof(Rigidbody))]
 public class ObjectIntegration : MonoBehaviour
 {
     [SerializeField] private GameObject[] targets;
-    [SerializeField] private ObjectEvent[] objEvents;
+    [SerializeField] private List<ObjectEvent> objEvents = new List<ObjectEvent>();
         [SerializeField] private bool eventTriggered = false;
     [SerializeField] private bool eventRepeatable = false;
 
@@ -15,7 +16,11 @@ public class ObjectIntegration : MonoBehaviour
 
     void Start()
     {
-       
+        ObjectEvent[] events = this.GetComponents<ObjectEvent>();
+        foreach (ObjectEvent newEvent in events)
+        {
+            AddEvent(newEvent);
+        }
     }
 
     void Update()
@@ -29,6 +34,11 @@ public class ObjectIntegration : MonoBehaviour
         {
             eventTriggered = false;
         }
+    }
+
+    public void AddEvent(ObjectEvent newEvent)
+    {
+        objEvents.Add(newEvent);
     }
     void OnCollisionEnter(Collision collision)
     {

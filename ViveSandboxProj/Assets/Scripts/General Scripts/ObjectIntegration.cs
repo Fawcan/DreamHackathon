@@ -29,7 +29,7 @@ public class ObjectIntegration : MonoBehaviour
                 Debug.Log("Is colliding with target");
                 foreach (ObjectEvent objEvent in objEvents)
                 {
-                    objEvent.StartAction(this.gameObject, collision.gameObject);
+                    objEvent.StartEvent(this.gameObject, collision.gameObject);
                 }
             }
         }

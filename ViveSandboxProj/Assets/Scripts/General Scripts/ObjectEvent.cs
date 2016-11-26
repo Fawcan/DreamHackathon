@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ObjectEvent : MonoBehaviour
 {
-    public virtual void  StartAction(GameObject thisObj, GameObject otherObj)
+    public virtual void  StartEvent(GameObject thisObj, GameObject otherObj)
     {
 
     }

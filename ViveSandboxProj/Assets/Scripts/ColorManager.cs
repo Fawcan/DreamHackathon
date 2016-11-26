@@ -15,8 +15,10 @@ public class ColorManager : MonoBehaviour
     }
 
     [SerializeField] private Colors currentColor;
-    [SerializeField] private Colors newColor;
-    [SerializeField] private string currentTag;
+    
+    private string currentTag;
+
+    private Colors newColor;
 
     private Color color;
 

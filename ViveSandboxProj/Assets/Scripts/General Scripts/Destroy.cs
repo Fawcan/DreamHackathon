@@ -9,7 +9,11 @@ public class Destroy : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-	
+        OnDeathFunctions[] functions = this.GetComponents<OnDeathFunctions>();
+        foreach (OnDeathFunctions function in functions)
+        {
+            AddToDeathFunctions(function);
+        }
 	}
 	
 	// Update is called once per frame

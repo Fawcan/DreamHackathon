@@ -2,11 +2,19 @@
 using System.Collections;
 
 public class DontDestroyOnLoad : MonoBehaviour {
-
+    static DontDestroyOnLoad manager = null;
 	// Use this for initialization
-	void Start ()
+	void Awake ()
     {
         DontDestroyOnLoad(this.gameObject);
+        if(manager == null)
+        {
+            manager = this;
+        }
+        else if(manager != null && manager != this)
+        {
+            Destroy(gameObject);
+        }
 	}
 
 }

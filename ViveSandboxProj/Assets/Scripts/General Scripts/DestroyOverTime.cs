@@ -3,7 +3,7 @@ using System.Collections;
 
 public class DestroyOverTime : MonoBehaviour
 {
-    [SerializeField] private float cooldown;
+    [SerializeField] private float cooldown = 2;
     [SerializeField] private float timer = 0;
     private bool countDownFinished = false;
 

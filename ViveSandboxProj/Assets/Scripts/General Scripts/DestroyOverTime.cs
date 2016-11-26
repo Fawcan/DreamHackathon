@@ -27,11 +27,11 @@ public class DestroyOverTime : MonoBehaviour
                 if (this.gameObject.GetComponent<Destroy>() != null)
                 {
                     countDownFinished = true;
-                    this.gameObject.GetComponent<Destroy>().DestroyObject();
+                    Destroy(gameObject);
                 }
                 else
                 {
-                    Debug.Log("This object does not have a destroy script");
+                    //Debug.Log("This object does not have a destroy script");
                 }
             }
         }

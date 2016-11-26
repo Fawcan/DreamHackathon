@@ -7,7 +7,7 @@ public class ObjectIntegration : MonoBehaviour
 {
     [SerializeField] private GameObject[] targets;
     [SerializeField] private List<ObjectEvent> objEvents = new List<ObjectEvent>();
-        [SerializeField] private bool eventTriggered = false;
+    [SerializeField] private bool eventTriggered = false;
     [SerializeField] private bool eventRepeatable = false;
 
     [SerializeField] private float eventCooldown = 0;
@@ -56,6 +56,36 @@ public class ObjectIntegration : MonoBehaviour
                     }
                 }
             }
+
+            eventTriggered = true;
+
+            if (eventRepeatable)
+            {
+                if (eventCooldown == 0)
+                    Debug.Log("Cooldown is Zero, please insert value in the Inspector");
+
+                timer = eventCooldown;
+            }
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (!eventTriggered)
+        {
+            foreach (GameObject go in targets)
+            {
+                if (other.gameObject.tag == go.tag)
+                {
+                    Debug.Log("Is colliding with target");
+                    foreach (ObjectEvent objEvent in objEvents)
+                    {
+                        objEvent.StartEvent(this.gameObject, other.gameObject);
+                    }
+                }
+            }
+
+            eventTriggered = true;
 
             if (eventRepeatable)
             {

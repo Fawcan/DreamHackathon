@@ -43,7 +43,7 @@ public class FirstButtonPressedEvent : ObjectEvent {
     {
         if (firstButtonPressed && !timerSet)
         {
-            timerSet = false;
+            timerSet = true;
             timer = timerStartValue;
         }
 

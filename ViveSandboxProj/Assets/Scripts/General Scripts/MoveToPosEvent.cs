@@ -39,6 +39,7 @@ public class MoveToPosEvent : ObjectEvent
             Debug.Log("started lerping");
             isLerping = true;
             startingPos = objectToMove.transform.position;
+            objectToMove.GetComponent<Rigidbody>().isKinematic = true;
             timeStartedLerping = Time.time;
             if (distanceToMove != 0)
             {

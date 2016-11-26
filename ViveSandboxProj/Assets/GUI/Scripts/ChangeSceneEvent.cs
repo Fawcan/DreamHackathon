@@ -8,6 +8,7 @@ public class ChangeSceneEvent : ObjectEvent
     [SerializeField] private float cooldown;
     [SerializeField] private bool timerStarted = false;
     [SerializeField] private LevelManager levelManager;
+   
 
     
     void Start()
@@ -21,6 +22,7 @@ public class ChangeSceneEvent : ObjectEvent
         if (!timerStarted)
         {
             timer = cooldown;
+            timerStarted = true;
         }
     }
 
@@ -30,9 +32,9 @@ public class ChangeSceneEvent : ObjectEvent
         {
             timer -= Time.deltaTime;
         }
-        else
+        else if (timer <= 0 && timerStarted)
         {
-            levelManager.LoadNextLevel();
+            levelManager.LevelLoad = true;
         }
     }
 }

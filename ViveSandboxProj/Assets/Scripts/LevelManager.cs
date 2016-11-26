@@ -25,8 +25,8 @@ public class LevelManager : MonoBehaviour {
 
     public void LoadNextLevel()
     {
-        levelIndex++;
-        Debug.Log("yay next level");
-        //SceneManager.LoadScene(levels[levelIndex]);
+        //levelIndex++;
+        //Debug.Log("yay next level");
+        //SceneManager.LoadScene("Scene_2");
     }
 }
